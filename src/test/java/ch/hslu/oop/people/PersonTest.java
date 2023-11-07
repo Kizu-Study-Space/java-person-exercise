@@ -2,6 +2,7 @@ package ch.hslu.oop.people;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import nl.jqno.equalsverifier.*;
 
 public class PersonTest {
 
@@ -41,5 +42,10 @@ public class PersonTest {
     public void testToString() {
         Person person = new Person(84943829, "Gratella", "Fischer");
         assertEquals("Person{id=84943829, firstName='Gratella', lastName='Fischer'}", person.toString());
+    }
+
+    @Test
+    public void testEquals() {
+        EqualsVerifier.forClass(Person.class).withOnlyTheseFields("id").verify();
     }
 }

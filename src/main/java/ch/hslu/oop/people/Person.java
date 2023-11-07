@@ -1,5 +1,7 @@
 package ch.hslu.oop.people;
 
+import java.util.Objects;
+
 public final class Person {
     private final long id;
     private String firstName;
@@ -33,10 +35,20 @@ public final class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "id=" + id + ", " +
-                "firstName='" + firstName + "', " +
-                "lastName='" + lastName + "'" +
-                '}';
+        return "Person{" + "id=" + id + ", " + "firstName='" + firstName + "', " + "lastName='" + lastName + "'" + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.id);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if(this == object) return true;
+        if(object instanceof Person person) {
+            return this.id == person.id;
+        }
+        return false;
     }
 }
