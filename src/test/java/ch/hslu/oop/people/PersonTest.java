@@ -36,4 +36,10 @@ public class PersonTest {
         person.setLastName("Ulrich");
         assertEquals("Ulrich",person.getLastName());
     }
+
+    @Test
+    public void testToString() {
+        Person person = new Person(84943829, "Gratella", "Fischer");
+        assertEquals("Person{id=84943829, firstName='Gratella', lastName='Fischer'}", person.toString());
+    }
 }
