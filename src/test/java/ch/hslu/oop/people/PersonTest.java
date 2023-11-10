@@ -47,5 +47,12 @@ public class PersonTest {
     @Test
     public void testEquals() {
         EqualsVerifier.forClass(Person.class).withOnlyTheseFields("id").verify();
+
+        Person person1 = new Person(838394, "Lisa", "Meier");
+        Person person2 = new Person(838394, "Juli", "Wankdorfer");
+        Person person3 = new Person(738283, "Lisa", "Meier");
+        
+        assertEquals(true, person1.equals(person2));
+        assertEquals(false, person1.equals(person3));
     }
 }
