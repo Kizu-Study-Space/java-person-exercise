@@ -48,4 +48,14 @@ public class PersonTest {
     public void testEquals() {
         EqualsVerifier.forClass(Person.class).withOnlyTheseFields("id").verify();
     }
+
+    @Test
+    public void testCompareTo() {
+        Person person1 = new Person(84943829, "Gratella", "Fischer");
+        Person person2 = new Person(84943829, "Gratella", "Fischer");
+        Person person3 = new Person(637, "Greta", "Ulrich");
+        assertEquals(0, person1.compareTo(person2));
+        assertEquals(1, person1.compareTo(person3));
+        assertEquals(-1, person3.compareTo(person1));
+    }
 }
